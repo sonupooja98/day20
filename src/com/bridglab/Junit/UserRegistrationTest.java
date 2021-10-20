@@ -1,4 +1,5 @@
 package com.bridglab.Junit;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,13 +10,13 @@ public class UserRegistrationTest {
 
 	@Test
 	public void givenFirstName_WhenInFormat_ShouldReturnTrue() {
-		boolean result = userRegistration.firstName("Ashish");
+		boolean result = userRegistration.firstName("Pooja");
 		Assert.assertEquals(true, result);
 	}
 
 	@Test
 	public void givenFirstName_WhenOurOfFormat_ShouldReturnFlase() {
-		boolean result = userRegistration.firstName("ashish");
+		boolean result = userRegistration.firstName("Poo&a");
 		Assert.assertEquals(false, result);
 	}
 
@@ -113,7 +114,7 @@ public class UserRegistrationTest {
 
 	    @Test
 	    public void givenEmail1_WhenOurOfFormat_ShouldReturnFalse() {
-	        boolean result = userRegistration.emailAddressSample("abc@yahoo.com");
+	        boolean result = userRegistration.emailAddressSample("@yahoo.com");
 	        Assert.assertEquals(false, result);
 	    }
 
@@ -151,7 +152,17 @@ public class UserRegistrationTest {
 	        Assert.assertEquals(false, result);
 	    }
 
+	    @Test
+	    public void givenMessage_WhenHappy_ShouldReturnEntrySuccessful() {
+	        String result = MoodAnalyser.analyseMood("I am in  Happy mood");
+	        Assert.assertEquals("Entry Successful", result);
+	    }
 
+	    @Test
+	    public void givenEmail2_WhenNotProper_ShouldReturnEntryFailed() {
+	        String result = MoodAnalyser.analyseMood("I am in Sad mood");
+	        Assert.assertEquals("Entry Failed", result);
+	    }
 
 
 }
