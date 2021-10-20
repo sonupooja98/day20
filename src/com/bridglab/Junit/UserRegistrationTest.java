@@ -1,4 +1,5 @@
 package com.bridglab.Junit;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -72,6 +73,15 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.passwordRule1("abcd");
 		Assert.assertEquals(false, result);
 	}
+	@Test
+	public void givenPasswordRule2_WhenInFormat_ShouldReturnTrue() {
+		boolean result = userRegistration.passwordRule2("Abcdefghij");
+		Assert.assertEquals(true, result);
+	}
 
-
+	@Test
+	public void givenPasswordRule2_WhenOurOfFormat_ShouldReturnFalse() {
+		boolean result = userRegistration.passwordRule2("abcdefghij");
+		Assert.assertEquals(false, result);
+	}
 }
